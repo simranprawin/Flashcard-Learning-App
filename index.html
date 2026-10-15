@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recallly - Flashcard Learning App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a href="#" class="logo">
+      <span class="logo-icon">🧠</span>
+      Recallly
+    </a>
+
+    <div class="header-actions">
+      <button id="themeButton" class="icon-button">🌙</button>
+      <button id="addTopButton" class="primary-button">
+        + Add Card
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="badge">DAY 6 PROJECT</div>
+      <h1>Learn smarter, <span>remember more.</span></h1>
+      <p>
+        Create flashcards, test your knowledge, and track your learning
+        progress one card at a time.
+      </p>
+    </section>
+
+    <section class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-icon purple">📚</span>
+        <div>
+          <strong id="totalCards">0</strong>
+          <small>Total Cards</small>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <span class="stat-icon green">✅</span>
+        <div>
+          <strong id="knownCards">0</strong>
+          <small>Known</small>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <span class="stat-icon orange">🔁</span>
+        <div>
+          <strong id="reviewCards">0</strong>
+          <small>Review Later</small>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <span class="stat-icon blue">📊</span>
+        <div>
+          <strong id="progressPercent">0%</strong>
+          <small>Progress</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="learning-area">
+      <div class="section-heading">
+        <div>
+          <h2>Study mode</h2>
+          <p>Test yourself and improve your memory.</p>
+        </div>
+
+        <select id="studyCategory">
+          <option value="all">All categories</option>
+        </select>
+      </div>
+
+      <div id="studyCard" class="study-card">
+        <div class="card-category" id="studyCardCategory">
+          No cards available
+        </div>
+
+        <div class="card-face">
+          <span class="face-label">QUESTION</span>
+          <h3 id="studyQuestion">
+            Add a flashcard to start learning.
+          </h3>
+        </div>
+
+        <div id="answerArea" class="answer-area hidden">
+          <span class="face-label">ANSWER</span>
+          <p id="studyAnswer"></p>
+        </div>
+
+        <button id="flipButton" class="flip-button">
+          Show Answer
+        </button>
+
+        <div class="study-actions">
+          <button id="reviewButton" class="review-button">
+            🔁 Review Later
+          </button>
+
+          <button id="knownButton" class="known-button">
+            ✓ I Know This
+          </button>
+        </div>
+
+        <div class="card-counter">
+          <span id="cardCounter">0 / 0</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="library-section">
+      <div class="section-heading library-heading">
+        <div>
+          <h2>My flashcards</h2>
+          <p>Search and manage your learning cards.</p>
+        </div>
+
+        <button id="addCardButton" class="primary-button">
+          + Create Card
+        </button>
+      </div>
+
+      <div class="filters">
+        <div class="search-box">
+          <span>🔍</span>
+          <input
+            type="search"
+            id="searchInput"
+            placeholder="Search your flashcards..."
+          />
+        </div>
+
+        <select id="filterSelect">
+          <option value="all">All cards</option>
+          <option value="known">Known</option>
+          <option value="review">Review later</option>
+        </select>
+      </div>
+
+      <div id="cardList" class="card-list"></div>
+    </section>
+  </main>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-heading">
+        <div>
+          <h2>Create flashcard</h2>
+          <p>Add a question and answer to your collection.</p>
+        </div>
+
+        <button id="closeModalButton" class="close-button">
+          ×
+        </button>
+      </div>
+
+      <form id="cardForm">
+        <label for="questionInput">Question</label>
+        <textarea
+          id="questionInput"
+          rows="4"
+          placeholder="Example: What does HTML stand for?"
+          required
+        ></textarea>
+
+        <label for="answerInput">Answer</label>
+        <textarea
+          id="answerInput"
+          rows="4"
+          placeholder="Example: HyperText Markup Language"
+          required
+        ></textarea>
+
+        <label for="categoryInput">Category</label>
+        <input
+          type="text"
+          id="categoryInput"
+          placeholder="Example: Web Development"
+          required
+        />
+
+        <button type="submit" class="submit-button">
+          Save Flashcard
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast" class="toast">Flashcard saved!</div>
+
+  <footer>
+    <p>Day 6 Project · Recallly Flashcard App</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
